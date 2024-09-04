@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+
+body {  
+    /* background-image: url('https://media.istockphoto.com/id/639970228/photo/technologies-to-connect-people-mixed-media.jpg?s=612x612&w=0&k=20&c=vmKljCKk_q0-usbyDmb7pk-Gw25EySAukYG4cCR-VgQ='); */
+    margin: 0;
+    padding: 0;
+    background-size: cover; 
+    height: 100vh;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    color: #333;
+  }
+
+  .playwrite-ng-modern-unique-title {
+    font-family: "Playwrite NG Modern", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;   
+  }
+  
+  .playwrite-ng-modern-unique-body {
+    font-family: "Playwrite NG Modern", cursive;
+    font-optical-sizing: auto;
+    font-weight: 300;   
+  }  
+  
+  .app {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .home, .marketplace {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2 {
+    color: #2c3e50;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #3498db;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Resource Form Styles */
+  .resource-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resource-form select, .resource-form input {
+    width: 30%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+  }
+  
+  .resource-form button {
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .resource-form button:hover {
+    background-color: darkblue;
+  }
+  
+  /* Resource List & Item Styles */
+  .resource-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .resource-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    position: relative;
+  }
+  
+  .resource-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+  }
+  
+  .resource-card p {
+    margin: 10px 0;
+    color: #7f8c8d;
+  }
+  
+  .resource-card button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: darkblue;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .resource-card button:hover {
+    background-color: darkblue;
+  }
+  
+  /* Home Page Styles */
+  .home h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .home a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .home a:hover {
+    background-color: #2980b9;
+  }
+  
+  .workplace-page {
+    color: white;
+  }
+  
+  
+  .playwrite-ng-modern-unique-title2 {
+    font-family: "Playwrite NG Modern", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;  
+    color: white; 
+  }

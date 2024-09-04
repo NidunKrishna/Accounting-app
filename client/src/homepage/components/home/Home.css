@@ -1,0 +1,55 @@
+.home {
+    background-image: url('https://i.pinimg.com/564x/a0/57/af/a057afe4ded4705c350f58f5be2521af.jpg'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding-top: 20px; 
+    color: black;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .header {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+  }
+  
+  .header h1 {
+    font-size: 55px;
+    color: #fff;
+  }
+  
+  .header p {
+    font-size: 18px;
+    color: #ddd;
+  }
+  
+  .explore-btn {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .explore-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Import the font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+
+.playwrite-ng-modern-unique-title {
+  font-family: "Playwrite NG Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;   
+}
+
+.playwrite-ng-modern-unique-body {
+  font-family: "Playwrite NG Modern", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;   
+}

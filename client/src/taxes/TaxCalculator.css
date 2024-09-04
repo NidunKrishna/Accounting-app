@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100;200;300;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: 'Playwrite NG Modern', cursive;
+  /* Ensure there's space for the fixed header */
+}
+
+.app-header {
+  background: #2c3e50; /* Dark background for contrast */
+  padding: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fixes the header to the top of the viewport */
+  width: 100%; /* Ensures the header spans the full width of the viewport */
+  top: 0; /* Aligns the header at the top */
+  left: 50%; /* Moves the left side of the header to the horizontal center */
+  transform: translateX(-50%); /* Adjusts the position to truly center the header horizontally */
+  z-index: 1000; /* Ensure the header is above other content */
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.4em; /* Adjust for visibility */
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  color: #fffee0; /* Matches the page background */
+}
+
+.tax-calculator-container {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  background: #fffee0;
+  font-family: 'Playwrite NG Modern', cursive;
+  color: black;
+  height: calc(100vh - 60px); /* Adjust height to account for the fixed header */
+  margin-top: 60px; /* Space for fixed header */
+}
+
+.tax-image {
+  width: 50%;
+  height: 100%; /* Adjust to fit the container height */
+  background-image: url('https://wallpapercave.com/wp/wp7319183.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px;
+}
+
+.tax-calculator {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tax-calculator h2 {
+  text-align: center;
+  font-size: 1.6em;
+  margin-bottom: 15px;
+}
+
+.calculator-section {
+  margin-bottom: 15px;
+  margin-top: 10px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.calculator-section h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.calculator-section p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}

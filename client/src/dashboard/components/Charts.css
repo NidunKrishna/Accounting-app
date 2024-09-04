@@ -1,0 +1,89 @@
+body {
+  background-color: #fffee0;
+}
+
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  box-sizing: border-box;
+  margin-left: 30vh;
+  margin-bottom: 5vh;
+}
+
+.account-info {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 20px;
+  width: 40%;
+  height: 80%; /* Adjust height as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.account-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #000000;
+  text-decoration: underline;
+}
+
+.info-item {
+  margin-bottom: 0px;
+}
+
+.info-item h4 {
+  font-size: 14px;
+  color: #333333;
+}
+
+.info-item p {
+  font-size: 12px;
+  color: #333333;
+}
+
+.charts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 5vh;
+}
+
+.chart-row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.chart-column {
+  width: 50%;
+  margin-left: 5vh;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 650px;
+  height: 30vh;
+}
+
+.dashboard-header {
+  font-size: 40px;
+  font-weight: bold;
+  color: #333333;
+  text-align:left;
+  margin-bottom: 20px;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+  background-color: #fffee0;
+  padding: 0px 0;
+  z-index: 100;
+  padding-left: 8vh;
+}
+
+.peeping-image {
+  position: absolute;  
+  left: -9vh;
+  width: 50vh; /* Adjust size as needed */
+  height: auto;  
+}

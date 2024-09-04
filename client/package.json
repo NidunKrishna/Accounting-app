@@ -1,0 +1,62 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^5.4.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@tsparticles/interaction-external-bubble": "^3.5.0",
+    "@tsparticles/interaction-external-connect": "^3.5.0",
+    "@tsparticles/interaction-external-grab": "^3.5.0",
+    "@tsparticles/interaction-external-repulse": "^3.5.0",
+    "@tsparticles/interaction-particles-links": "^3.5.0",
+    "@tsparticles/shape-image": "^3.5.0",
+    "@tsparticles/updater-life": "^3.5.0",
+    "antd": "^5.20.3",
+    "axios": "^1.7.5",
+    "chart.js": "^4.4.4",
+    "framer-motion": "^11.3.31",
+    "jspdf": "^2.5.1",
+    "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-credit-cards": "^0.8.3",
+    "react-dom": "^18.3.1",
+    "react-lazyload": "^3.2.1",
+    "react-loading": "^2.0.3",
+    "react-router-dom": "^6.26.1",
+    "react-scripts": "5.0.1",
+    "react-slick": "^0.30.2",
+    "react-tsparticles": "^2.12.2",
+    "recharts": "^2.12.7",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.12",
+    "tsparticles": "^3.5.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

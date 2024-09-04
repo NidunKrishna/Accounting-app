@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playwrite NG Modern', sans-serif;
+    background-color: #fffee0;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.invoice-header {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.invoice-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 0px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 13px;
+    height: 65vh;
+    margin-left: 5vh;
+}
+
+.invoice-details {
+    padding: 15px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.detail-item strong {
+    font-weight: bold;
+}
+
+.description {
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.action-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 2vh;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Playwrite NG Modern', sans-serif;
+}
+
+.action-button:hover {
+    background-color: #333;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: green;
+}
