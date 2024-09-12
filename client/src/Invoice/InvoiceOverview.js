@@ -4,10 +4,19 @@ import jsPDF from 'jspdf';
 import axios from 'axios';
 
 const InvoiceOverview = () => {
-    var invoiceDetails = {
-        invoiceNumber: 'F-012345-65',
-        issueDate: '05-02-2023',
-        contactName: 'Jack Adams',
+    const [val, setVal] = useState({ input: '' });
+    const [res, setRes] = useState(null); // Initialize as null to handle loading state
+    const [message, setMessage] = useState('');
+
+    const date = new Date();
+    const formattedIssueDate = date.toISOString().split('T')[0];
+    
+    const name = res?.name || "N/A";
+    const id = res?.id || 'N/A'
+    const invoiceDetails = {
+        invoiceNumber:`F-INV${id}`,
+        issueDate: formattedIssueDate,
+        contactName: name,
         email: 'keethu171003@gmail.com',
         reference: 'City',
         description: 'UI Designer',
@@ -17,17 +26,41 @@ const InvoiceOverview = () => {
         country: 'London',
         currency: 'USD'
     };
-    useEffect(()=>{
-        Get();
-    },[])
-    const [message, setMessage] = useState('');
-    const [details,setDetails] = useState([])
-    const Get = () => {
-        axios.get('http://localhost:8000/Retrieve').then(response=>{
-            setDetails(response.data);
-            console.log(response.data);
-        })
-    }
+
+    const handle = (e) => {
+        const { name, value } = e.target;
+        setVal(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    // useEffect(() => {
+    //     const GET = async () => {
+    //         try {
+    //             const response = await axios.get('http://localhost:8000/Search/Get');
+    //             console.log('API Response:', response.data);
+    //             setRes(response.data);
+    //         } catch (error) {
+    //             console.log('Error fetching data:', error);
+    //         }
+    //     };
+
+    //     GET();
+    // }, []);
+
+    const POST = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:8000/Search', val)
+            .then(response => {
+                console.log('POST response:', response);
+                setRes(response.data)
+            })
+            .catch(error => {
+                console.error('Error during POST request:', error);
+            });
+    };
+
     const sendEmail = async () => {
         try {
             const response = await fetch('http://localhost:8000/Invoice', {
@@ -48,7 +81,7 @@ const InvoiceOverview = () => {
                 setMessage('Failed to send email');
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error sending email:', error);
             setMessage('Error: Failed to send email');
         }
     };
@@ -72,36 +105,56 @@ const InvoiceOverview = () => {
 
     return (
         <div className="page-container">
+            <form onSubmit={POST}>
+                
+                <input type='number' name='input' value={val.input} onChange={handle} />
+                <button type="submit">Submit</button>
+            </form>
             <h1 className="invoice-header">Invoice Overview</h1>
+           
             <div className="invoice-container">
-                <div className="invoice-details">
-                    <div className="detail-item">
-                        <div><strong>Invoice No.</strong> <br />{invoiceDetails.invoiceNumber}</div>
-                        <div><strong>Issue Date</strong> <br />{invoiceDetails.issueDate}</div>
+                 {res ? (
+                    <div>
+                        {res.map((details,index)=>(
+                    <div className="invoice-details" key={index}>
+                        <div className="detail-item">
+                            <div><strong>Invoice No.</strong> <br />F-INV {details.id}</div>
+                            <div><strong>Issue Date</strong> <br />{formattedIssueDate}</div>
+                        </div>
+                        </div>))}
+               
+                        {res.map((details, index) => (
+                            <div className="detail-item" key={index}>
+                                <div><strong>Contact Name</strong> <br />{details.name}</div>
+                                <div><strong>Billing From</strong> <br />{invoiceDetails.billingFrom}</div>
+                            </div>
+                        ))}
+                        {res.map((details,index)=>(
+                        <div className="detail-item" key={index}>
+                            <div><strong>Email</strong> <br />{invoiceDetails.email}</div>
+                            <div><strong>company</strong> <br />{details.company}</div>
+                        </div>
+                        ))}
+                        <div className="detail-item">
+                            <div><strong>Reference Inv.</strong> <br />{invoiceDetails.reference}</div>
+                            <div><strong>Currency</strong> <br />{invoiceDetails.currency}</div>
+                        </div>
+                        {res.map((details,index)=>(
+                        <div className="description">
+                            <strong>Description</strong> <br />{details.Quote}
+                        </div>
+                        ))}
+                        <div className="detail-item">
+                            <div><strong>Due Date</strong> <br />{invoiceDetails.dueDate}</div>
+                            <div><strong>Delivery Date</strong> <br />{invoiceDetails.deliveryDate}</div>
+                        </div>
                     </div>
-                    <div className="detail-item">
-                        <div><strong>Contact Name</strong> <br />{invoiceDetails.contactName}</div>
-                        <div><strong>Billing From</strong> <br />{invoiceDetails.billingFrom}</div>
-                    </div>
-                    <div className="detail-item">
-                        <div><strong>Email</strong> <br />{invoiceDetails.email}</div>
-                        <div><strong>Country</strong> <br />{invoiceDetails.country}</div>
-                    </div>
-                    <div className="detail-item">
-                        <div><strong>Reference Inv.</strong> <br />{invoiceDetails.reference}</div>
-                        <div><strong>Currency</strong> <br />{invoiceDetails.currency}</div>
-                    </div>
-                    <div className="description">
-                        <strong>Description</strong> <br />{invoiceDetails.description}
-                    </div>
-                    <div className="detail-item">
-                        <div><strong>Due Date</strong> <br />{invoiceDetails.dueDate}</div>
-                        <div><strong>Delivery Date</strong> <br />{invoiceDetails.deliveryDate}</div>
-                    </div>
-                </div>
+                ) : (
+                    <p>Loading...</p>
+                )}
                 <div className="button-container">
-                    <button className="action-button" onClick={downloadPDF}>Download</button>
-                    <button className="action-button" onClick={sendEmail}>Send Email</button>
+                    <button className="action-button" onClick={downloadPDF} disabled={!res}>Download</button>
+                    <button className="action-button" onClick={sendEmail} disabled={!res}>Send Email</button>
                 </div>
             </div>
             {message && <div className="message">{message}</div>}

@@ -33,7 +33,7 @@ const FormComponent = () => {
       if (response.status === 200) {
         console.log('verified');
         login(values);
-        navigate('/Navbar');
+        navigate('/Home');
       } else {
         alert('not verified');
       }

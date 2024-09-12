@@ -2,15 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2');
 const nodemailer = require("nodemailer");
-
 const app = express();
 const port = 8000;
 const Invoice = require('./server')
+const Search = require('./test')
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: 'localhost',
+
   user: 'root',
-  password: 'root',
+  password: 'admin',
   port: 3306,
   database:'user'
 });
@@ -87,7 +88,7 @@ app.post('/api/clients', (req, res) => {
     }
   );
 });
-
+app.use('/Search',Search)
 app.get('/api/fetchclient', (req, res) => {
   pool.query('SELECT name, company, Des, Quote FROM clients WHERE status = 1', (err, results) => {
     if (err) {

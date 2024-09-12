@@ -13,8 +13,9 @@ const Navbar = () => {
         <li className="playwrite-ng-modern-unique-body"><a href="/Trends">Trend Analysis</a></li>
         <li className="playwrite-ng-modern-unique-body"><a href="/TaxCalculator">Generated taxes</a></li>
         <li className="playwrite-ng-modern-unique-body"><a href="/Customer">Customer Details</a></li>
-        <li className="playwrite-ng-modern-unique-body"><a href="http://localhost:3002/">Invoice Overview</a></li>
+        <li className="playwrite-ng-modern-unique-body"><a href="/Invoice">Invoice Overview</a></li>
         <li className="playwrite-ng-modern-unique-body"><a href="http://localhost:3001/">Resource MarketPlace</a></li>
+        <li className="playwrite-ng-modern-unique-body"><a href="/Register">Client Register</a></li>
       </ul>
     </nav>
   );

@@ -109,6 +109,11 @@ const HomePage = () => {
               <p>Offers a detailed summary of financial transactions and invoice statuses for efficient financial management</p>
               <button>Know More</button>
             </div>
+            <div className="homepage-service">
+              <h3>Client Page</h3>
+              <p>Centralizes and manages comprehensive customer information for enhanced service delivery</p>
+              <Link to='/Register'><button>Know More</button></Link>
+            </div>
           </div>
         </div>
       </section>

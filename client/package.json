@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^6.0.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -14,11 +17,13 @@
     "@tsparticles/interaction-particles-links": "^3.5.0",
     "@tsparticles/shape-image": "^3.5.0",
     "@tsparticles/updater-life": "^3.5.0",
-    "antd": "^5.20.3",
+    "antd": "^5.20.5",
     "axios": "^1.7.5",
     "chart.js": "^4.4.4",
     "framer-motion": "^11.3.31",
     "jspdf": "^2.5.1",
+    "lazyload": "^2.0.0-rc.2",
+    "lucide-react": "^0.438.0",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
     "react-credit-cards": "^0.8.3",
@@ -58,5 +63,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
   }
 }

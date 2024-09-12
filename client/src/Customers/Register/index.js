@@ -1,141 +1,108 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Button, Checkbox, Form, Input } from 'antd';
-import { Flex, Spin } from 'antd';
+import React, { useState } from 'react';
+import {
+  DesktopOutlined,
+  FileOutlined,
+  PieChartOutlined,
+  TeamOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
+import Form from './Form';
+import { Breadcrumb, Layout, Menu, theme, Typography } from 'antd';
+import {Link} from 'react-router-dom'
 
+const { Header, Content, Footer, Sider } = Layout;
+const { Title } = Typography;
 
-const formItemLayout = {
-  labelCol: {
-    span: 4,
-  },
-  wrapperCol: {
-    span: 8,
-  },
-};
-const formTailLayout = {
-  labelCol: {
-    span: 4,
-  },
-  wrapperCol: {
-    span: 8,
-    offset: 4,
-  },
-};
+function getItem(label, key, icon, children) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+  };
+}
+
+const items = [
+  getItem('Dashboard', '1', <PieChartOutlined />),
+  getItem('Projects', '2', <DesktopOutlined />),
+  getItem('Users', 'sub1', <UserOutlined />, [
+    getItem('User List', '3'),
+    getItem('Add User', '4'),
+    getItem('User Roles', '5'),
+  ]),
+  getItem('Teams', 'sub2', <TeamOutlined />, [getItem('Team List', '6'), getItem('Create Team', '7')]),
+  getItem('Documents', '8', <FileOutlined />),
+];
+
 const App = () => {
-  const [form] = Form.useForm();
-  const [checkNick, setCheckNick] = useState(false);
-  const [loaded , setLoaded ] = useState(true);
-  useEffect(()=>{
-    setTimeout(() => {
-      setLoaded(false)
-    }, 2000);
-  })
-  useEffect(() => {
-    form.validateFields(['nickname']);
-  }, [checkNick, form]);
-  const onCheckboxChange = (e) => {
-    setCheckNick(e.target.checked);
-  };
-  const onCheck = async () => {
-    try {
-      const values = await form.validateFields();
-      console.log('Success:', values);
-      axios.post('http://localhost:8000/api/clients',values).then(response => {
-        console.log('inserted',response)
-      })
-    } catch (errorInfo) {
-      console.log('Failed:', errorInfo);
-    }
-  };
-  if(loaded){
-    return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
- <Flex align="center" gap="middle">
-    <Spin size="small" style={{color:'black'}} />
-    <Spin />
-    <Spin size="large" />
-  </Flex></div>
-    
-    );
-  }
+  const [collapsed, setCollapsed] = useState(false);
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
+
   return (
-    <>
-    <Form
-      form={form}
-      name="dynamic_rule"
-      style={{
-        maxWidth: 600,
-        marginLeft:'60vh',
-        marginTop:'5vh'
-      }}
-    >
-      <Form.Item
-        {...formItemLayout}
-        name="name"
-        label="Name"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your name',
-          },
-        ]}
+    <Layout style={{ minHeight: '100vh' }}>
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+        theme="light"
       >
-        <Input placeholder="Please input your name" />
-      </Form.Item>
-      <Form.Item
-        {...formItemLayout}
-        name="company"
-        label="Company"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your name',
-          },
-        ]}
-      >
-        <Input placeholder="Please input your name" />
-      </Form.Item>
-      <Form.Item
-        {...formItemLayout}
-        name="Quote"
-        label="Quote"
-        rules={[
-          {
-            required: checkNick,
-            message: 'Please input your nickname',
-          },
-        ]}
-      >
-        <Input placeholder="Please input your nickname" />
-      </Form.Item>
-      <Form.Item
-      style={{
-        width:'140vh'
-      }}
-        {...formItemLayout}
-        name="Des"
-        label="descprition"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your name',
-          },
-        ]}
-      >
-        <Input placeholder="Please input your name" />
-      </Form.Item>
-      <Form.Item {...formTailLayout}>
-        <Checkbox checked={checkNick} onChange={onCheckboxChange}>
-        Description is required
-        </Checkbox>
-      </Form.Item>
-      <Form.Item {...formTailLayout}>
-        <Button type="primary" onClick={onCheck}>
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
-    </>
+        <div className="demo-logo-vertical" style={{ height: 64, margin: 16, background: '#001529', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Typography.Text strong style={{ color: '#fff', fontSize: '18px' }}>
+            {collapsed ? 'CA' : 'Client Details'}
+          </Typography.Text>
+        </div>
+        <Menu
+          theme="light"
+          defaultSelectedKeys={['1']}
+          mode="inline"
+          items={items}
+        />
+      </Sider>
+      <Layout>
+        <Header
+          style={{
+            padding: '0 24px',
+            background: colorBgContainer,
+            boxShadow: '0 1px 4px rgba(0,21,41,.08)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Title level={4} style={{ margin: 0 }}>Dashboard</Title>
+          <UserOutlined style={{ fontSize: '18px' }} />
+        </Header>
+        <Content style={{ margin: '24px 16px 0' }}>
+          <Breadcrumb style={{ marginBottom: '16px' }}>
+            <Breadcrumb.Item><Link to='/Home'>Home</Link></Breadcrumb.Item>
+            <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+          </Breadcrumb>
+          <div
+            style={{
+              padding: 24,
+              minHeight: 360,
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+            }}
+          >
+            <Form />
+          </div>
+        </Content>
+        <Footer
+          style={{
+            textAlign: 'center',
+            background: colorBgContainer,
+            color: 'rgba(0, 0, 0, 0.45)',
+            padding: '16px 50px',
+          }}
+        >
+          ©2024 Company App by Nidun. All Rights Reserved.
+        </Footer>
+      </Layout>
+    </Layout>
   );
 };
+
 export default App;

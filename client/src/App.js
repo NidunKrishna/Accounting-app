@@ -36,7 +36,7 @@ const App = () => {
       <Route path='Invoice' element = {<Invoice/>}/>
       <Route path='Check' element = {<Check/>}/>
       <Route path='Invoice' element = {<Invoice/>}/>
-      <Route path='Navbar' element = {<Navbar/>}/>
+      <Route path='Home' element = {<Navbar/>}/>
       <Route path='Charts' element = {<Charts/>}/>
       <Route path='TaxCalculator' element = {<TaxCalculator/>}/>
 
